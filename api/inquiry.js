@@ -1,10 +1,10 @@
-import cheerio from "cheerio";
+const cheerio = require("cheerio");
 
 function abs(base, href){
-  try{ return new URL(href, base).toString(); }catch(e){ return href; }
+  try { return new URL(href, base).toString(); } catch (e) { return href; }
 }
 
-export default async function handler(req, res){
+module.exports = async function(req, res){
   const url = "http://oticon.or.kr/oticon_inquiry";
   try{
     const r = await fetch(url, { headers: { "User-Agent": "Mozilla/5.0" } });
@@ -75,4 +75,4 @@ export default async function handler(req, res){
     res.setHeader("Cache-Control", "no-cache");
     return res.status(500).json({ ok:false, error: String(err) });
   }
-}
+};
