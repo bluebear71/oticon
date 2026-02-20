@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>문의하기 | Oticon Premium</title>
+<link rel="icon" href="http://oticon.or.kr/files/attach/images/146/1a004a149fb149140a44433575791686.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  .board-wrap{margin-top:10px}
+  .board-card{border-radius:34px;background:rgba(255,255,255,.88);border:1px solid rgba(255,255,255,.82);box-shadow:var(--shadow);overflow:hidden}
+  .board-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;border-bottom:1px solid var(--line)}
+  .board-top h1{margin:0;font-size:22px;letter-spacing:-.4px;font-weight:980}
+  .board-top p{margin:6px 0 0;color:rgba(10,15,26,.60);font-weight:700;font-size:13px}
+  .board-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+  .board-body{padding:0}
+  .table{width:100%;border-collapse:separate;border-spacing:0}
+  .table th,.table td{padding:14px 14px;border-bottom:1px solid var(--line);font-size:14px}
+  .table th{text-align:left;color:rgba(10,15,26,.62);font-weight:900;background:rgba(10,15,26,.02)}
+  .table td{color:rgba(10,15,26,.86);font-weight:650}
+  .table tr:hover td{background:rgba(37,99,235,.04)}
+  .link{text-decoration:none;color:inherit}
+  .muted2{color:rgba(10,15,26,.58);font-weight:750;font-size:13px}
+  .badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.72);font-weight:900;color:rgba(10,15,26,.72)}
+  .loading{padding:18px}
+  .err{padding:18px;color:#b91c1c;font-weight:800}
+  .topbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  @media (max-width:980px){
+    .board-top{flex-direction:column;align-items:flex-start}
+    .board-actions{justify-content:flex-start}
+    .table th:nth-child(1), .table td:nth-child(1){display:none}
+  }
+</style>
+</head>
+<body>
+<div class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html">
+      <div class="logo-wrap"><img src="http://oticon.or.kr/files/attach/images/146/1a004a149fb149140a44433575791686.png" alt="Oticon logo"></div>
+      <span>Hearing Care Center</span>
+    </a>
+
+    <div class="menu">
+      <a href="index.html#services">Services</a>
+      <a href="products.html">Products</a>
+      <a href="price.html">Price</a>
+      <a href="notice.html">Notice</a>
+      <a href="inquiry.html">Inquiry</a>
+      <a href="location.html">Location</a>
+    </div>
+
+    <div class="cta">
+      <a class="pill" href="tel:031-818-2000"><span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M7 3h3l2 5-2 1c1.2 2.4 3 4.2 5.4 5.4l1-2 5 2v3c0 1.1-.9 2-2 2C10.3 20.8 3.2 13.7 3 5c0-1.1.9-2 2-2h2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span> 031-818-2000</a>
+      <a class="btn" href="inquiry.html"><span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Consultation</a>
+      <button class="hamburger" data-hamburger aria-expanded="false" aria-label="메뉴 열기"><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></button>
+    </div>
+  </div>
+</div>
+
+<div class="mobile-panel" data-mobile-panel style="display:none">
+  <div class="container">
+    <a href="index.html#services">Services</a>
+    <a href="products.html">Products</a>
+    <a href="price.html">Price</a>
+    <a href="notice.html">Notice</a>
+    <a href="inquiry.html">Inquiry</a>
+    <a href="location.html">Location</a>
+    <div class="row">
+      <a class="btn" href="tel:031-818-2000"><span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M7 3h3l2 5-2 1c1.2 2.4 3 4.2 5.4 5.4l1-2 5 2v3c0 1.1-.9 2-2 2C10.3 20.8 3.2 13.7 3.2 13.7 3 5c0-1.1.9-2 2-2h2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span> 전화</a>
+      <a class="btn" href="inquiry.html"><span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> 문의</a>
+    </div>
+  </div>
+</div>
+
+<div class="spacer"></div>
+
+<section class="section">
+  <div class="container board-wrap">
+    <div class="board-card reveal on">
+      <div class="board-top">
+        <div>
+          <div class="topbar">
+            <span class="badge">문의하기</span>
+            <a class="pill" href="notice.html">공지사항로 이동</a>
+          </div>
+          <h1 style="margin-top:10px">문의하기</h1>
+          <p>기존 게시판 데이터는 유지하면서, 화면은 새 디자인으로 렌더링합니다.</p>
+        </div>
+        <div class="board-actions">
+          <a class="btn" href="tel:031-818-2000"><span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M7 3h3l2 5-2 1c1.2 2.4 3 4.2 5.4 5.4l1-2 5 2v3c0 1.1-.9 2-2 2C10.3 20.8 3.2 13.7 3 5c0-1.1.9-2 2-2h2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span> 전화 상담</a>
+          <a class="pill" href="http://oticon.or.kr/oticon_inquiry" target="_blank" rel="noopener">원본 열기</a>
+        </div>
+      </div>
+
+      <div class="board-body" id="board">
+        <div class="loading">
+          <div class="skel" style="height:180px;border-radius:26px"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container footer">
+  전화 031-818-2000 · 팩스 031-963-0058 · 이메일 oticon@oticon.or.kr
+</div>
+
+<script src="assets/js/main.js"></script>
+<script>
+(async function(){
+  const el = document.getElementById('board');
+  try{
+    const res = await fetch('/api/inquiry', { cache: 'no-store' });
+    const data = await res.json();
+    if(!data.ok){
+      el.innerHTML = '<div class="err">데이터를 불러오지 못했습니다. (프록시/파싱 문제) 원본 열기를 이용해 주세요.</div>';
+      return;
+    }
+
+    const items = data.items || [];
+    if(items.length === 0){
+      el.innerHTML = '<div class="loading"><div class="muted2">표시할 항목이 없습니다.</div></div>';
+      return;
+    }
+
+    let thead = '';
+    let rows = '';
+
+    if('inquiry' === 'notice'){
+      thead = '<tr><th style="width:90px">번호</th><th>제목</th><th style="width:130px">날짜</th><th style="width:90px">조회</th></tr>';
+      rows = items.map(it => `
+        <tr>
+          <td class="muted2">${it.num || ''}</td>
+          <td><a class="link" href="${it.link}" target="_blank" rel="noopener">${it.title}</a></td>
+          <td class="muted2">${it.date || ''}</td>
+          <td class="muted2">${it.views || ''}</td>
+        </tr>
+      `).join('');
+    } else {
+      thead = '<tr><th style="width:90px">번호</th><th>제목</th><th style="width:120px">작성자</th><th style="width:130px">날짜</th></tr>';
+      rows = items.map(it => `
+        <tr>
+          <td class="muted2">${it.num || ''}</td>
+          <td><a class="link" href="${it.link}" target="_blank" rel="noopener">${it.title}</a></td>
+          <td class="muted2">${it.author || ''}</td>
+          <td class="muted2">${it.date || ''}</td>
+        </tr>
+      `).join('');
+    }
+
+    el.innerHTML = `
+      <table class="table">
+        <thead>${thead}</thead>
+        <tbody>${rows}</tbody>
+      </table>
+      <div class="loading">
+        <div class="muted2">원본 게시판 구조가 변경되면 목록 파싱이 깨질 수 있습니다. 그럴 땐 함수 코드에서 파싱 규칙만 업데이트하면 됩니다.</div>
+      </div>
+    `;
+  }catch(e){
+    el.innerHTML = '<div class="err">이 페이지는 Netlify 같은 호스팅에 올려야 정상 동작합니다. 로컬 파일에서는 /api 호출이 동작하지 않습니다.</div>';
+  }
+})();
+</script>
+</body>
+</html>
